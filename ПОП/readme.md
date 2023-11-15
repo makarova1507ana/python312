@@ -8,5 +8,7 @@
 <a href=""> </a><br>
 <a href=""> </a><br>
 
-https://habr.com/ru/articles/349860/ - статья
-https://regex101.com/r/aGn8QC/2 - песочница
+https://habr.com/ru/articles/349860/ - статья <br>
+https://regex101.com/r/aGn8QC/2 - песочница <br>
+
+https://learn.javascript.ru/regexp-greedy-and-lazy - про жадный поиск <br>
