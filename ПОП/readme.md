@@ -1,3 +1,4 @@
+<a href="https://colab.research.google.com/drive/1EebMP16HA-r5kDsQ2lHehJ_hs9hzkWhb?usp=sharing"> короткий конспект по работе с ОС</a>
 <a href="https://docs-python.ru/tutorial/vstroennye-iskljuchenija-interpretator-python/bazovye-klassy-iskljuchenij/"> классы исключений </a> </br>
 <a href="https://ru.hexlet.io/courses/algorithms-trees/lessons/binary/theory_unit"> про бинарное дерево </a></br>
 
