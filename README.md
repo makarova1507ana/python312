@@ -6,3 +6,5 @@ https://docs.python.org/3/ - документация питон
 https://docs.google.com/document/d/1d3TlkPxpXTMFPhVB4goYhc55soEjNCA20lVARYOuglI/edit?usp=sharing - примеры как вернутся к более раннем коммиту
 <br>
 [Markdown](https://app.gitbook.com/invite/yQnE2IjPytSTyVia9mT9/dqDAfDGq2iG7mb9hIvB5)
+<br>
+[Краткое руководство Github](https://docs.google.com/document/d/18Dczs8ZUW4QPkIsjf8OZgx_GWXMaXGZst-6GcOe3C5A/edit?usp=sharing)
