@@ -87,9 +87,15 @@ class Cat:
 
 #—------------------------------- Задача —--------------------------------#
 # Создайте класс, представляющий товар или продукт, хранящий информацию о его названии,
-# цене, количестве на складе  и добавьте методы просмотр товара
+# цене, количестве на складе и добавьте методы просмотр товара
 class Product:
-    def __init__(self, name, price, quantity):
+    # __new__ -> конструктор -> создает объект -> выделить область памяти
+    # def __new__(cls, name, price, quantity): # Основная задача: выделить область памяти
+    #     print("сработал метод new")
+    #     return super().__new__(cls) # вернемся при изучении наследования
+
+    def __init__(self, name, price, quantity): #Основная задача: завершить создание объект (запись данных в поля класса и т.д.)
+        #print("сработал метод init")
         self.name = name
         self.price = price
         self.quantity = quantity
@@ -98,7 +104,27 @@ class Product:
         print(f'Product: {self.name}, price: {self.price}, quantity: {self.quantity}')
 
 #
-# pizza = Product(name='Pepperoni', price=850, quantity=3)
-# pizza.show_product()
+
+pizza = Product(name='Pepperoni', price=850, quantity=3)
+pizza.show_product()
+
+print(pizza.name)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
