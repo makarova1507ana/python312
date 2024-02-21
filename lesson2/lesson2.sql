@@ -140,6 +140,7 @@ SELECT * FROm clients order by name ASC;
 -- Найти клиентов, у которых дата рождения совпадает с текущей датой.
 SELECT * FROm clients where birth_date = CURRENT_DATE;
 
+
  /*ПОСМОТРИМ В ПН*/
 
 -- Получить количество клиентов, родившихся в каждом году.
