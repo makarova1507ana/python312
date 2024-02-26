@@ -1,0 +1,4 @@
+Иванов 2Иван
+
+SELECT name from  clients
+WHERE name LIKE '%[0-9]%';
