@@ -3,3 +3,6 @@ from django.shortcuts import render
 
 def index(request):
     return HttpResponse("ура страница появилась")
+
+def page2(request):
+    return HttpResponse("ура страница появилась")
