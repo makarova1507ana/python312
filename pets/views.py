@@ -2,7 +2,7 @@ from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render
 
 def index(request):
-    return HttpResponse("<h2>Главная <a href='http://127.0.0.1:8000/pets/cats/'>Коты</a> Собаки</h2>")
+    return render(request, "index.html")
 
 # def cats(request):
 #     return HttpResponse("<h2>Коты</h2>")
@@ -10,12 +10,27 @@ def index(request):
 # def dogs(request):
 #     return HttpResponse("<h2>Собаки</h2>")
 #
+class Cat:
+    def __init__(self):
+        self.name = "Cat"
+        self.age = 3
+
+    # def __repr__(self):
+    #     return f"name: {self.name}, age: {self.age}"
 def pet(request, pet_slug):
+    data = {
+        "pet_name": pet_slug,
+        "pet_text": "Это текст про страницу с животными",
+        "pet_list": ["Кот", "Собака"],
+        "pet_int": 34,
+        "pet_dict": {"cat": "Кот", "dog": "Собака"},
+        "pet_obj": Cat()
+    }
     # будем делать обращение к БД " существует ли pet_slug ?"
     if pet_slug in ['cats', 'dogs']:
-        return HttpResponse(f"<h2>{pet_slug}</h2>")
-    return HttpResponseNotFound(f"<h2>ОШИБКА!!! Нет такой страницы!</h2><img src='https://i.pinimg.com/736x/c9/e3/eb/c9e3eb487b0deb3f50501c196e332b58.jpg'>") # будет отправлен статус код 404
-
+        return render(request, "pet_page.html", context=data) # context преобразует все к строке
+    #return HttpResponseNotFound(f"<h2>ОШИБКА!!! Нет такой страницы!</h2><img src='https://i.pinimg.com/736x/c9/e3/eb/c9e3eb487b0deb3f50501c196e332b58.jpg'>") # будет отправлен статус код 404
+    return render(request, "pageNotFound404.html", status=404)
 
 def petGET(request):
     title = request.GET.get('title')# лучше примернять когда есть форма

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pets</title>
+</head>
+<body>
+<h2><a href='..'>Главная</a> <a href='/pets/cats/'>Коты</a> <a href='/pets/dogs/'>Собаки</a></h2>
+<h3>pet_name {{ pet_name }}</h3>
+<p>pet_text {{ pet_text }}</p>
+<p>pet_list {{ pet_list }}</p>
+<p>pet_list.0 {{ pet_list.0 }}</p>
+<p>pet_list|first {{ pet_list|first }}</p> <!--pet_list|first   фильтр-->
+<p>pet_int {{ pet_int }}</p>
+<p>pet_dict {{ pet_dict }}</p>
+<p>pet_dict.dog {{ pet_dict.dog }}</p>
+<p>pet_obj {{ pet_obj }}</p>
+
+</body>
+</html>
