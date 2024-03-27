@@ -1,20 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Pets</title>
-</head>
-<body>
-<h2><a href='..'>Главная</a> <a href='/pets/cats/'>Коты</a> <a href='/pets/dogs/'>Собаки</a></h2>
+{% extends "base.html" %}
+
+{% block main_content %}
+<h1>{{ pet_name }}</h1>
+
 <h3>pet_name {{ pet_name }}</h3>
 <p>pet_text {{ pet_text }}</p>
-<p>pet_list {{ pet_list }}</p>
-<p>pet_list.0 {{ pet_list.0 }}</p>
-<p>pet_list|first {{ pet_list|first }}</p> <!--pet_list|first   фильтр-->
+
 <p>pet_int {{ pet_int }}</p>
-<p>pet_dict {{ pet_dict }}</p>
-<p>pet_dict.dog {{ pet_dict.dog }}</p>
+
 <p>pet_obj {{ pet_obj }}</p>
 
-</body>
-</html>
+
+<h2>
+    Фильтры
+</h2>
+<p>------словарь-----</p>
+
+
+<div>
+    <p>pet_dict {{ pet_dict }}</p>
+    <p>pet_dict.dog {{ pet_dict.dog }}</p>
+</div>
+
+<div>
+    ------список-----
+
+    <p>pet_list {{ pet_list }}</p>
+    <p>pet_list.0 {{ pet_list.0 }}</p>
+    <p>pet_list|first {{ pet_list|first }}</p> <!--pet_list|first   фильтр-->
+
+
+</div>
+
+
+
+<h2>
+    шаблоные теги
+</h2>
+
+<h3>список животных</h3>
+<ul class="pets">
+    {% for name_pet in pet_list %}
+
+        <li>{{ name_pet }}</li>
+
+    {% endfor %}
+</ul>
+
+
+
+<h3>словарь животных</h3>
+<ul class="dict_pets">
+    {% for key, value in pet_dict.items %}
+
+        <li>key - > {{ key }} <p>value  -> {{ value }}</p></li>
+
+    {% endfor %}
+</ul>
+{# greeting #}hello
+
+
+
+{% endblock main_content %}

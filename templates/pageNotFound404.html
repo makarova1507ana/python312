@@ -1,11 +1,13 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>PageNotFound</title>
+
 </head>
 <body>
-  <h2>ОШИБКА!!! Нет такой страницы!</h2><img src='https://i.pinimg.com/736x/c9/e3/eb/c9e3eb487b0deb3f50501c196e332b58.jpg'>
+  <h2>ОШИБКА!!! Нет такой страницы!</h2><img src="{% static 'images/404.jpg' %}">
 
 </body>
 </html>

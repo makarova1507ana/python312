@@ -21,7 +21,7 @@ def pet(request, pet_slug):
     data = {
         "pet_name": pet_slug,
         "pet_text": "Это текст про страницу с животными",
-        "pet_list": ["Кот", "Собака"],
+        "pet_list": ["Кот", "Собака", "Птицы"],
         "pet_int": 34,
         "pet_dict": {"cat": "Кот", "dog": "Собака"},
         "pet_obj": Cat()
@@ -29,7 +29,6 @@ def pet(request, pet_slug):
     # будем делать обращение к БД " существует ли pet_slug ?"
     if pet_slug in ['cats', 'dogs']:
         return render(request, "pet_page.html", context=data) # context преобразует все к строке
-    #return HttpResponseNotFound(f"<h2>ОШИБКА!!! Нет такой страницы!</h2><img src='https://i.pinimg.com/736x/c9/e3/eb/c9e3eb487b0deb3f50501c196e332b58.jpg'>") # будет отправлен статус код 404
     return render(request, "pageNotFound404.html", status=404)
 
 def petGET(request):
