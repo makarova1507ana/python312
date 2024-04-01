@@ -32,8 +32,12 @@ def pet(request, pet_slug):
     return render(request, "pageNotFound404.html", status=404)
 
 def petGET(request):
-    title = request.GET.get('title')# лучше примернять когда есть форма
-    return HttpResponse(f"<h2>{title}</h2>")
+    #       запрос.МЕТОД.получить_значение()
+
+    user_data = request.GET.get('search_field')
+    user_data3 = request.GET.get('smthfield')
+
+    return HttpResponse(f"<h2>{user_data}</h2><div>{user_data3}</div>")
 
 
 
