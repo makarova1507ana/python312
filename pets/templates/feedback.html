@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Отзывы</h1>
+
+{% for item in feedback %}
+    <p>{{ item.text }}</p>
+    <p>{{ item.date_created }}</p>
+{% endfor %}
+
+</body>
+</html>

@@ -1,7 +1,14 @@
 from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render
 
+
+from .models import Animal, Feedback
+
+# def create_animal():
+#     animal = Animal.objects.create(name='Animal2', age=8)
+
 def index(request):
+    #create_animal()
     return render(request, "index.html")
 
 # def cats(request):
@@ -43,3 +50,14 @@ def petGET(request):
 
 def categories(request, categorie_id):
     return HttpResponse(f"<h2>Категории</h2><p>id:{ categorie_id }</p>")
+
+def feedback(request):
+    # feedback получить все записи
+    results = Feedback.objects.all()
+
+    # передать в шаблон
+    data ={
+       "feedback": results
+    }
+
+    return render(request, 'feedback.html', data)
