@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form method="POST" action="/pets/editFeedback/">
+     {% csrf_token %}
+    <textarea name="feedback"></textarea> <br>
+    <input type="submit" value="отправить">
+</form>
+
+</body>
+</html>

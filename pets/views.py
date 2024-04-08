@@ -52,12 +52,29 @@ def categories(request, categorie_id):
     return HttpResponse(f"<h2>Категории</h2><p>id:{ categorie_id }</p>")
 
 def feedback(request):
-    # feedback получить все записи
-    results = Feedback.objects.all()
+    if request.method == 'POST':
+        # ------------------- CREATE ---------------------#
+        text_feedback = request.POST.get('feedback')
+        Feedback.objects.create(text=text_feedback)
+        return HttpResponse(f"""
+        <h2>Ваш отзыв успешно отправлен</h2>
+        <a href=""><button>Вернуться на страницу с отзывами</button></a>
+""")
+    elif request.method == 'GET':
+        #------------------- READ ---------------------#
+        #feedback получить все записи
+        results = Feedback.objects.all()
 
-    # передать в шаблон
-    data ={
-       "feedback": results
-    }
+        # передать в шаблон
+        data ={
+           "feedback": results
+        }
 
-    return render(request, 'feedback.html', data)
+        return render(request, 'feedback.html', data)
+
+def editFeedback(request):
+    pass
+    # отобразить инфомарцию о текущем отзыве
+
+    # отобразить форму
+    # обработать редактирование

@@ -5,11 +5,23 @@
     <title>Title</title>
 </head>
 <body>
-<h1>Отзывы</h1>
+<h2>Ваш отзыв</h2>
+<form method="POST" action="/pets/feedback/">
+     {% csrf_token %}
+    <textarea name="feedback"></textarea> <br>
+    <input type="submit" value="отправить">
+</form>
+
+
+<h2>Отзывы</h2>
 
 {% for item in feedback %}
+<div style="background: lightblue;" id="{{ item.id }}">
     <p>{{ item.text }}</p>
     <p>{{ item.date_created }}</p>
+    <a href="../edit_feedback/1/"><button>редактировать</button></a>
+    <a href="#"><button>удалить</button></a>
+</div>
 {% endfor %}
 
 </body>
