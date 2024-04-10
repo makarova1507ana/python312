@@ -1,4 +1,6 @@
-from django.http import HttpResponse, HttpResponseNotFound
+from datetime import datetime
+
+from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.shortcuts import render
 
 
@@ -72,9 +74,31 @@ def feedback(request):
 
         return render(request, 'feedback.html', data)
 
-def editFeedback(request):
-    pass
-    # отобразить инфомарцию о текущем отзыве
+def editFeedback(request, feedback_id):
+    feedbackData = Feedback.objects.get(id=feedback_id)
+    if request.method == "GET":
+        # отобразить инфомарцию о текущем отзыве
+        data = {"id": feedback_id,
+                "text": feedbackData.text,
+                "date_created": feedbackData.date_created}
+        # отобразить форму
+        return render(request, 'editFeedback.html', data)
 
-    # отобразить форму
-    # обработать редактирование
+    # ------------------- UPDATE ---------------------#
+    if request.method == 'POST':
+        # обработать редактирование
+        feedbackData.text = request.POST.get('feedback')
+        feedbackData.date_updated = datetime.now().strftime('%Y-%m-%d-%H-%M-%S')
+        feedbackData.save()
+        return HttpResponseRedirect("../../feedback/")
+
+# удаление данных из бд
+def deleteFeedback(request, feedback_id):
+    try:
+        Feedback.objects.get(id=feedback_id).delete()
+        return HttpResponseRedirect("../../feedback/") # возвращаемся на главную страницу приложения
+    except Feedback.DoesNotExist:
+        return HttpResponseNotFound("""
+        <h2>Такой отзыв не был найден</h2>
+          <a href="../../feedback/"><button>Вернуться на страницу с отзывами</button></a>
+        """)

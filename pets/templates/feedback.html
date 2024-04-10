@@ -18,9 +18,13 @@
 {% for item in feedback %}
 <div style="background: lightblue;" id="{{ item.id }}">
     <p>{{ item.text }}</p>
-    <p>{{ item.date_created }}</p>
-    <a href="../edit_feedback/1/"><button>редактировать</button></a>
-    <a href="#"><button>удалить</button></a>
+    <p>дата создания: {{ item.date_created }}</p>
+    {% if item.date_updated != None and item.date_updated != item.date_created %}
+        <p>дата редактирования : {{ item.date_updated }}</p>
+    {% endif %}
+
+    <a href="../edit_feedback/{{ item.id }}/"><button>редактировать</button></a>
+    <a href="../delete_feedback/{{ item.id }}/"><button>удалить</button></a>
 </div>
 {% endfor %}
 
