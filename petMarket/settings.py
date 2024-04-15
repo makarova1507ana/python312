@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'django.contrib.staticfiles',
     'pets', # 'pets.apps.PetsConfig' # регистрации нашего приложения
+    'feedback',
 ]
 
 MIDDLEWARE = [
