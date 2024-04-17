@@ -15,7 +15,7 @@
 <h2>Отредактировать:</h2>
 
 
-  <form method="POST" action="">
+  <form method="POST" action="" enctype="multipart/form-data">
         {% csrf_token %}
 
         {% for field in add_feedback_form %}
@@ -23,13 +23,15 @@
             {{field.label_tag}}
             <div>{{field}}</div>
 
+
             {% if field.errors%}
             {% for error in field.errors %}
-            <div class="alert alert-danger">
+            <div style="color:red;" class="alert alert-danger">
                 {{error}}
             </div>
             {% endfor %}
             {% endif %}
+
 
 
         {% endfor %}
