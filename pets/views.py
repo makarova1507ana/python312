@@ -4,7 +4,7 @@ from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.shortcuts import render
 
 
-from .models import Animal
+from .models import Animal, Product
 
 # def create_animal():
 #     animal = Animal.objects.create(name='Animal2', age=8)
@@ -53,3 +53,9 @@ def petGET(request):
 def categories(request, categorie_id):
     return HttpResponse(f"<h2>Категории</h2><p>id:{ categorie_id }</p>")
 
+def show_products(request):
+    results = Product.objects.all()
+    data = {
+        "products": results
+    }
+    return render(request,"products.html",context=data)

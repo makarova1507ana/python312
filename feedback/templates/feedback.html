@@ -1,5 +1,8 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
+
+
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -50,6 +53,12 @@
     {% if item.date_updated != None and item.date_updated != item.date_created %}
         <p>дата редактирования : {{ item.date_updated }}</p>
     {% endif %}
+
+    {% if item.image %}
+        <img src="{{ item.image.url }}">
+
+    {% endif %}
+
 
     <a href="edit_feedback/{{ item.id }}/"><button>редактировать</button></a>
     <a href="delete_feedback/{{ item.id }}/"><button>удалить</button></a>
