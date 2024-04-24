@@ -25,6 +25,8 @@ urlpatterns = [
     path('feedback/', include('feedback.urls')),
 
 ]
+admin.site.site_header = "Панель администрирования"
+admin.site.index_title = "Зоомагазин верный друг"
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

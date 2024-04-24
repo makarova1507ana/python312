@@ -7,9 +7,12 @@
 <body>
 <h2>Продукты</h2>
 {% for item in products %}
+<a href="../product/{{item.id}}/">
+<div style="background: lightblue;">
     <p>{{ item.title }}</p>
-    <p>{{ item.image }}</p>
+    <img src="{{ item.image.url }}">
     <p>{{ item.price }}</p>
+</div></a>
 {% endfor %}
 </body>
 </html>

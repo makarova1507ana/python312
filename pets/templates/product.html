@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div style="background: lightblue;">
+    <h2>{{ product.title }}</h2>
+    <p>{{ product.price }}</p>
+    <img src="{{ product.image.url }}">
+</div>
+
+{% for feedback in feedbacks %}
+<div style="background: lightyellow;">
+    <p> {{feedback.rating}}</p>
+    <p>{{ feedback.text }}</p>
+
+    {% if feedback.image or feedback.image != ''%}
+             <img src="../../../media/{{ feedback.image }}"> <!--../../../media/{{ feedback.image }}-->
+    {% endif %}
+
+</div>
+{% endfor %}
+</body>
+</html>

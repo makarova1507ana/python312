@@ -59,3 +59,13 @@ def show_products(request):
         "products": results
     }
     return render(request,"products.html",context=data)
+
+
+def show_product(request, product_id):
+    product = Product.objects.get(id=product_id)
+    feedbacks = product.feedback_set.all()
+    data = {
+        "product": product,
+        'feedbacks': feedbacks
+    }
+    return render(request,"product.html",context=data)

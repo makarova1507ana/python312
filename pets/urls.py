@@ -6,6 +6,7 @@ urlpatterns = [
     path('', pets.index, name="main_url"),
     path('petGET/', pets.petGET),
     path("products/", pets.show_products),
+    path("product/<int:product_id>/", pets.show_product),
     path('<slug:pet_slug>/', pets.pet), # http://127.0.0.1:8000/pets/{pet_slug}/
     path('categories/<int:categorie_id>/', pets.categories),
 ]
