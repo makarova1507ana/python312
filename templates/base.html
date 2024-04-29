@@ -9,7 +9,15 @@
 </head>
 <body>
 <input type="submit" id="btn_theme" name="theme" value="dark">
-<h2><a href=''>Главная</a> <a href='/pets/cats/'>Коты</a> <a href='/pets/dogs/'>Собаки</a></h2>
+    <h2>
+    <a href='{% url "main_url" %}'>Главная</a>
+    {% for animal in animals %}
+        <a href='pet/{{animal.slug}}/'>{{animal.title}}</a>
+    {% endfor %}
+
+
+    </h2>
+
 
 {% block main_content %}
 <!--Содержимое страницы-->

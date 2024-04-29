@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h2>Продукты</h2>
+{% extends "base.html" %}
+
+{% block main_content %}
+<h2>{{category}}</h2>
 {% for item in products %}
 <a href="../product/{{item.id}}/">
 <div style="background: lightblue;">
@@ -14,5 +10,5 @@
     <p>{{ item.price }}</p>
 </div></a>
 {% endfor %}
-</body>
-</html>
+
+{% endblock main_content %}

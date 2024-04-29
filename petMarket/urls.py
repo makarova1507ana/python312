@@ -21,7 +21,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('pets/', include('pets.urls')),
+    path('', include('pets.urls')), # отказались от pets
     path('feedback/', include('feedback.urls')),
 
 ]
