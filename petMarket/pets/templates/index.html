@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block main_content %}
+
+
+
+
+
+
+
+
+
+    <section class="hero">
+        <!-- Основное изображение или слайдер -->
+        <div class="hero-image">
+            <img src="{% static 'images/main-img.jpg' %}" alt="Красивая картинка животных">
+        </div>
+        <!-- Заголовок и описание -->
+        <div class="hero-content">
+            <h2>Добро пожаловать!</h2>
+            <p>Погрузитесь в атмосферу тепла и уюта с нашими пастельными товарищами. Встречайте новую коллекцию животных в пастельных тонах - ваш идеальный спутник в радостных приключениях!</p>
+            <a href="#" class="btn">Посмотреть каталог</a>
+        </div>
+    </section>
+
+    <section class="featured-products">
+        <!-- Вывод избранных товаров -->
+        <h2>Избранные товары</h2>
+        <div class="product-grid">
+            <!-- Пример карточки товара -->
+            <div class="product-card">
+                <img src="product1.jpg" alt="Товар 1">
+                <h3>Название товара</h3>
+                <p class="price">$19.99</p>
+                <a href="#" class="btn">Купить</a>
+            </div>
+            <!-- Другие карточки товаров -->
+            <!-- <div class="product-card"> ... </div> -->
+            <!-- <div class="product-card"> ... </div> -->
+            <!-- <div class="product-card"> ... </div> -->
+        </div>
+    </section>
+
+
+
+
+{% endblock main_content %}
+
+
