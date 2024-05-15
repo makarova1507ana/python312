@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from django.views import View
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView, DetailView
+from .models import Book
+
+
 
 
 class Index(View):
@@ -28,3 +31,23 @@ class PageTemplate(TemplateView):
          # context['posts'] = Women.published.all().select_related('cat')
          context['id'] = int(self.request.GET.get('id'))
          return context
+
+
+
+class BookListView(ListView):
+    model = Book
+    template_name = 'book_list.html'
+    context_object_name = 'books' # 'books' - это ключ словаря
+
+    #queryset = Book.objects.filter(author='')
+
+    def get_queryset(self):
+        # Получаем список книг, отсортированный по дате публикации
+        return Book.objects.filter(author=self.kwargs['author_name'])
+
+class BookDetailView(DetailView):
+    model = Book
+    template_name = 'book_detail.html'
+    context_object_name = 'book'
+    pk_url_kwarg = 'book_id'  # Имя переменной в URL для первичного ключа
+    #queryset = Book.objects.get(pk_url_kwarg)

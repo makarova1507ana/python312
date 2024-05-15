@@ -10,7 +10,13 @@
         </ul>
 
 
-<h2>{{category}}</h2>
+<h2>Товары в разделе {{pet}}</h2>
+{% for cat in categories %}
+ <ul>
+    <li><a href="#">{{cat}}</a></li>
+ </ul>
+{% endfor %}
+
 
         <div class="product-list">
             <!-- Здесь будут отображаться товары -->

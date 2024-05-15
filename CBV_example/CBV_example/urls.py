@@ -22,4 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', app.Index.as_view()),
     path('templateview/<int:id>/', app.PageTemplate.as_view()),
+    path('books/<str:author_name>/', app.BookListView.as_view()),
+    path('books/<int:book_id>/', app.BookDetailView.as_view()),
 ]

@@ -37,9 +37,10 @@ class Product(models.Model):
     slug = models.CharField(max_length=100,  null=True, verbose_name='слаг')
 
     amount = models.IntegerField(verbose_name='В наличии', default=0)
+
     class Meta:
         verbose_name = 'Товар'
         verbose_name_plural = 'Товары'
 
-    def __str__(self):
+    def __repr__(self):
         return self.title
