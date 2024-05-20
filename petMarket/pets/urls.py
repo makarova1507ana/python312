@@ -1,6 +1,7 @@
 from django.urls import path, re_path
 from django.views.generic import TemplateView
-
+from django.shortcuts import render
+from django.conf.urls import handler404
 import pets.views as pets
 
 urlpatterns = [
@@ -13,3 +14,5 @@ urlpatterns = [
     path("categories/<slug:slug>/", pets.Category_Products.as_view(), name="categories"),
     path("product/<int:product_id>/", pets.Product_Detail.as_view(), name="product"),
 ]
+
+

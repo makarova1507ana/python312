@@ -19,7 +19,15 @@
             <img src="{% static 'images/logo.jpg' %}" alt="Логотип магазина">
             <h1>Магазин </h1>
         </div>
+<div class="user-name">
 
+        {% if user.is_authenticated %} <!--Авторизован пользователь?-->
+         <li class="last"><a href="http://127.0.0.1:8000/users/account/"> {{user.username}}</a> | <a href="http://127.0.0.1:8000/users/logout/">Выйти</a></li>
+        {% else %}<!-- не авторизован-->
+            <li class="last"><a href="http://127.0.0.1:8000/users/login/">Войти</a> | <a href="http://127.0.0.1:8000/users/register/">Регистрация</a></li>
+        {% endif %}
+
+</div>
 
         <!-- Навигационное меню -->
         <nav class="nav-menu">
@@ -40,6 +48,9 @@
   <input type="search" id="search-input" name="search_field"  placeholder="Поиск..."> <!--name - параметр запроса-->
   <input type="submit" id="search-button" value="Submit">
 </form>
+
+
+
     </header>
 
 
