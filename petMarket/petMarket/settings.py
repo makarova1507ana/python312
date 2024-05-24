@@ -135,3 +135,13 @@ MEDIA_URL = ('/media/')
 LOGIN_REDIRECT_URL = 'main_url'
 LOGOUT_REDIRECT_URL = 'main_url'
 LOGIN_URL = 'login'
+
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',  # Стандартный бэкенд для логина
+    'users.authentication.EmailAuthBackend',  # Новый бэкенд для аутентификации по E-mail
+]
+
+AUTH_USER_MODEL = 'users.User'
+DEFAULT_USER_IMAGE = MEDIA_URL + 'users/default.png'
+

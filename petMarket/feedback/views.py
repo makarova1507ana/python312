@@ -4,14 +4,14 @@ from feedback.forms import *
 import datetime
 
 
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def feedback(request):
-    # feedback получить все записи
-    results = Feedback.objects.all()
+
 
     # передать в шаблон
     data = {
-        "feedback": results,
         'add_feedback_form': AddFeedbackForm()
     }
 
