@@ -1,6 +1,6 @@
 import datetime
 
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, PasswordChangeForm
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth import get_user_model
@@ -18,7 +18,7 @@ class RegisterUserForm(UserCreationForm):
     password2 = forms.CharField(label='Повтор пароля', widget=forms.PasswordInput(attrs={'class': 'form-input'}))
 
     class Meta:
-        model = User
+        model = get_user_model() #User #ОШИБКА
         fields = ['username', 'email', 'first_name', 'last_name', 'password1', 'password2']
         labels = {
             'email': 'E-mail',
@@ -33,7 +33,8 @@ class RegisterUserForm(UserCreationForm):
 
     def clean_email(self):
         email = self.cleaned_data['email']
-        if User.objects.filter(email=email).exists():# проверка на уникальность email
+        # User вместо get_user_model() #ОШИБКА
+        if get_user_model().objects.filter(email=email).exists():# проверка на уникальность email
             raise forms.ValidationError("Такой E-mail уже существует!")
         return email
 
@@ -62,3 +63,8 @@ class ProfileUserForm(forms.ModelForm):
             'first_name': forms.TextInput(attrs={'class': 'form-input'}),
             'last_name': forms.TextInput(attrs={'class': 'form-input'}),
         }
+
+class UserPasswordChangeForm(PasswordChangeForm):
+    old_password = forms.CharField(label='Старый пароль', widget=forms.PasswordInput(attrs={'class': 'form-input'}))
+    # password1 = forms.CharField(label='Новый пароль', widget=forms.PasswordInput(attrs={'class': 'form-input'}))
+    # password2 = forms.CharField(label='Подтверждение пароль', widget=forms.PasswordInput(attrs={'class': 'form-input'}))

@@ -3,8 +3,10 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import reverse_lazy
 from .forms import LoginUserForm
 from django.views.generic.edit import FormView, CreateView, UpdateView
-from .forms import RegisterUserForm
+from .forms import RegisterUserForm, UserPasswordChangeForm
 from django.contrib.auth.mixins import LoginRequiredMixin
+
+from django.contrib.auth.views import PasswordChangeView, PasswordChangeDoneView
 
 class LoginPage(LoginView):
     form_class = LoginUserForm
@@ -49,3 +51,10 @@ class ProfileUser(LoginRequiredMixin, UpdateView):
     def get_object(self, queryset=None):
         return self.request.user
 
+class UserPasswordChange(PasswordChangeView):
+    form_class = UserPasswordChangeForm
+    template_name = 'password_change_form.html'
+    extra_context = {'title': "Изменение пароля"}
+
+    def get_success_url(self):
+        return reverse_lazy('password_change_done')
